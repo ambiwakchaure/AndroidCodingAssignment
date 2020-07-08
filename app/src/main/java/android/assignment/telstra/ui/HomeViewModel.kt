@@ -1,4 +1,7 @@
 package android.assignment.telstra.ui
 
-class HomeViewModel {
+import androidx.lifecycle.ViewModel
+
+class HomeViewModel : ViewModel() {
+    // TODO: Implement the ViewModel
 }
