@@ -10,7 +10,6 @@ class CityInfoProviderItem(private val cityInfoProvider: CityInfoProvider) : Bin
     override fun getLayout(): Int = R.layout.city_info_provider_item
 
     override fun bind(viewBinding: CityInfoProviderItemBinding, position: Int) {
-        Log.e("CityInfoProviderItem : ","imageHref : "+cityInfoProvider.imageHref)
         viewBinding.cityInfoProvider = cityInfoProvider
     }
 }

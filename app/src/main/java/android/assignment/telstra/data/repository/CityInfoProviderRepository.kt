@@ -12,7 +12,7 @@ class CityInfoProviderRepository(private val api : MyApi,private val db : CityIn
     //all room database call goes from here
 
     //get all city info
-    fun getAllCityInfo() : LiveData<List<CityInfoProvider>>
+    suspend fun getAllCityInfo() : List<CityInfoProvider>
         = db.getCityInfoProviderDao().getAllCityInfo()
 
     //get all city info

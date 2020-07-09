@@ -7,11 +7,12 @@ import androidx.room.*
 @Dao
 interface CityInfoProviderDao {
     //insert all city info into db table
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun addCityInfo(cityInfoProvider: List<CityInfoProvider>)
 
     //select all city info from db table
     @Query("SELECT * FROM cityinfoprovider")
-    fun getAllCityInfo() : LiveData<List<CityInfoProvider>>
+    suspend fun getAllCityInfo() : List<CityInfoProvider>
 
     //delete all record
     @Query("DELETE FROM cityinfoprovider")
