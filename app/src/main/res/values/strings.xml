@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">AndroidCodingAssignment</string>
+    <string name="app_name">Telstra Assignment</string>
+    <string name="default_image_url">https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/American_Beaver.jpg/220px-American_Beaver.jpg</string>
 </resources>

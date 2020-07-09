@@ -6,9 +6,9 @@ import java.io.Serializable
 
 @Entity
 class CityInfoProvider (
-        val title : String,
-        val description : String,
-        val imageHref : String
+        val title : String? = null,
+        val description : String? = null,
+        val imageHref : String? = null
 ) : Serializable
 {
     @PrimaryKey(autoGenerate = true)
