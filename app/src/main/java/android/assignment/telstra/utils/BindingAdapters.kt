@@ -19,8 +19,8 @@ class BindingAdapters
             //set profile image
             Glide.with(itemImage.context)
                 .load(imageUrl)
-                .diskCacheStrategy(DiskCacheStrategy.NONE)
-                .skipMemoryCache(true)
+                //.diskCacheStrategy(DiskCacheStrategy.NONE)
+                //.skipMemoryCache(true)
                 .into(itemImage)
 
         }

@@ -1,9 +1,13 @@
 package android.assignment.telstra.ui
 
+import android.assignment.telstra.MyApplication
 import android.assignment.telstra.R
 import android.assignment.telstra.data.database.entities.CityInfoProvider
 import android.assignment.telstra.databinding.HomeFragmentBinding
 import android.assignment.telstra.utils.toast
+import android.content.Context
+import android.net.ConnectivityManager
+import android.net.NetworkInfo
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -35,13 +39,26 @@ class HomeFragment : Fragment(),KodeinAware {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
+        //check internet connectivity
+        if (isNetworkAvailable())
+        {
+            observeCityInfoDetails()
+            //get data from api when deivice is online
+            viewModel.getCityInfoDetailsFromApi()
+        }
+        else
+            //get data from local database when deivice is offline
+            observeCityInfoDetails()
+    }
+    fun observeCityInfoDetails()
+    {
         //observe the city title and set to the action bar
         //title is comming from api
-        viewModel.city_info_title.observe(viewLifecycleOwner, Observer {
+        viewModel.getCityTitle().observe(viewLifecycleOwner, Observer {
             requireActivity().title = it
         })
         //observe the city details and set to the recyclerview
-        viewModel.city_info_rows.observe(viewLifecycleOwner, Observer {
+        viewModel.getAllCityInfo().observe(viewLifecycleOwner, Observer {
             if (it!!.isEmpty())
                 requireActivity().toast("Oops ! City Information not found")
             else
@@ -63,5 +80,14 @@ class HomeFragment : Fragment(),KodeinAware {
         return this.map {
             CityInfoProviderItem(it)
         }
+    }
+    //check internet connection
+    fun isNetworkAvailable(): Boolean
+    {
+        val connectivityManager = MyApplication.context.getSystemService(Context.CONNECTIVITY_SERVICE)
+        return if (connectivityManager is ConnectivityManager) {
+            val networkInfo: NetworkInfo? = connectivityManager.activeNetworkInfo
+            networkInfo?.isConnected ?: false
+        } else false
     }
 }
