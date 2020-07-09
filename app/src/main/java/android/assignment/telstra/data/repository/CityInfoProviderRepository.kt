@@ -11,15 +11,13 @@ class CityInfoProviderRepository(private val api : MyApi,private val db : CityIn
 
     //all room database call goes from here
 
-    //add city info
-    suspend fun addCityInfo(cityInfoProvider: List<CityInfoProvider>)
-        = db.getCityInfoProviderDao().addCityInfo(cityInfoProvider)
-
     //get all city info
     fun getAllCityInfo() : LiveData<List<CityInfoProvider>>
         = db.getCityInfoProviderDao().getAllCityInfo()
 
-
+    //get all city info
+    suspend fun deleteAllCityThenInsert(cityInfoProvider: List<CityInfoProvider>)
+            = db.getCityInfoProviderDao().deleteAllCityThenInsert(cityInfoProvider)
 
     //all api call goes from here
     //get city info details from api

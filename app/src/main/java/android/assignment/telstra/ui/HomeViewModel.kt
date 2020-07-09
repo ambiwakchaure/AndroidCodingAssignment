@@ -20,9 +20,9 @@ class HomeViewModel(private val repository: CityInfoProviderRepository) : ViewMo
             response.title?.let {
                 //store title into shredpref
                 city_info_title.value = response.title
-                MyApplication.editor.putString("city_title","City Title Not Found").commit()
+                MyApplication.editor.putString("city_title",response.title).commit()
                 //store city info details into local db
-                repository.addCityInfo(response.rows)
+                repository.deleteAllCityThenInsert(response.rows)
             }
         }
     }
