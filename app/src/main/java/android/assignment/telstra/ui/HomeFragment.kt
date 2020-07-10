@@ -88,12 +88,21 @@ class HomeFragment : Fragment(),KodeinAware,IHomeCallbacks {
 
 
     override fun onRefreshCityInfoList() {
-        viewModel.isLoading = true
-        binding.homeViewModel = viewModel
+
         //refresh city details
         if (T.isNetworkAvailable())
-        //get data from api when deivice is online
+        {
+            viewModel.isLoading = true
+            binding.homeViewModel = viewModel
+            //get data from api when deivice is online
             viewModel.getCityInfoDetailsFromApi()
+        }
+        else
+        {
+            viewModel.isLoading = false
+            binding.homeViewModel = viewModel
+        }
+
     }
 
     override fun showMessage(message: String) {

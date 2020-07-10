@@ -48,7 +48,6 @@ class HomeViewModel(private val repository: CityInfoProviderRepository) : ViewMo
                 MyApplication.editor.putString("city_title",response.title).commit()
                 //store city info details into local db
                 repository.deleteAllCityThenInsert(response.rows)
-                Log.e("HomeViewModel : ","Refreshed...")
                 iHomeCallbacks?.showMessage("City information refreshed")
             }
         }

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margin_top">4pt</dimen>
+    <dimen name="padding_5pt">5pt</dimen>
+    <dimen name="height_50pt">50pt</dimen>
+</resources>
