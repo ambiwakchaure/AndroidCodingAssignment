@@ -5,7 +5,7 @@ import android.assignment.telstra.data.database.entities.CityInfoProvider
 import android.assignment.telstra.databinding.CityInfoProviderItemBinding
 import com.xwray.groupie.databinding.BindableItem
 
-//create each row item
+//create each row itemm
 class CityInfoProviderItem(private val cityInfoProvider: CityInfoProvider) :
     BindableItem<CityInfoProviderItemBinding>() {
     override fun getLayout(): Int = R.layout.city_info_provider_item
