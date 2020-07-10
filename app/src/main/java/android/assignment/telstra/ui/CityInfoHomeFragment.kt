@@ -46,6 +46,7 @@ class CityInfoHomeFragment : Fragment(), KodeinAware, IHomeCallbacks {
         observeCityInfoDetails()
     }
 
+    //observe city details
     fun observeCityInfoDetails() {
         //observe the city title and set to the action bar
         //title is comming from api

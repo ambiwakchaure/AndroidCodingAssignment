@@ -21,7 +21,7 @@ class HomeViewModel(private val repository: CityInfoProviderRepository) : ViewMo
     var iHomeCallbacks: IHomeCallbacks? = null
     var isLoading: Boolean = false
 
-    init {//asdasdas
+    init {
         if (T.isNetworkAvailable()) {
             //load data from local db
             getCityTitle()
