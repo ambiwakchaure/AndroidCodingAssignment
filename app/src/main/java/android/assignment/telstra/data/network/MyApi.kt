@@ -12,12 +12,12 @@ import java.util.concurrent.TimeUnit
 
 interface MyApi {
 
+    //api for load data fromserver
     @POST("facts.json")
-    suspend fun  getCityInfoProviderDetails() : Response<CityInfoResponse>
+    suspend fun getCityInfoProviderDetails(): Response<CityInfoResponse>
 
-
-    companion object{
-        operator fun invoke(networkConnectionInterceptor: NetworkConnectionInterceptor) : MyApi{
+    companion object {
+        operator fun invoke(networkConnectionInterceptor: NetworkConnectionInterceptor): MyApi {
 
             val okHttpClient = OkHttpClient.Builder()
                 .callTimeout(30, TimeUnit.SECONDS)
@@ -29,7 +29,7 @@ interface MyApi {
 
             return Retrofit.Builder()
                 .client(okHttpClient)
-                .baseUrl(Constants.API_URL)//cpanel
+                .baseUrl(Constants.API_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
                 .create(MyApi::class.java)

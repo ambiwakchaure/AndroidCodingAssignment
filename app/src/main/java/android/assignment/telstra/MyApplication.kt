@@ -16,20 +16,19 @@ import org.kodein.di.generic.instance
 import org.kodein.di.generic.provider
 import org.kodein.di.generic.singleton
 
-class MyApplication : Application(),KodeinAware
-{
-    companion object
-    {
+class MyApplication : Application(), KodeinAware {
+    companion object {
         lateinit var context: Context
-        lateinit var prefs : SharedPreferences
-        lateinit var editor : SharedPreferences.Editor
+        lateinit var prefs: SharedPreferences
+        lateinit var editor: SharedPreferences.Editor
     }
+
     override fun onCreate() {
         super.onCreate()
         context = applicationContext
 
         //shared preferences
-        prefs = getSharedPreferences("city_info",0)
+        prefs = getSharedPreferences("city_info", 0)
         editor = prefs.edit()
         editor.commit()
     }
@@ -40,7 +39,7 @@ class MyApplication : Application(),KodeinAware
         bind() from singleton { NetworkConnectionInterceptor() }
         bind() from singleton { MyApi(instance()) }
         bind() from singleton { CityInfoDb(instance()) }
-        bind() from singleton { CityInfoProviderRepository(instance(),instance()) }
+        bind() from singleton { CityInfoProviderRepository(instance(), instance()) }
         bind() from provider { HomeViewModelFactory(instance()) }
     }
 }

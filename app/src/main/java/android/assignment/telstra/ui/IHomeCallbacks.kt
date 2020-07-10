@@ -1,7 +1,7 @@
 package android.assignment.telstra.ui
 
-interface IHomeCallbacks
-{
+//handle home page callbacks
+interface IHomeCallbacks {
     fun onRefreshCityInfoList()
-    fun showMessage(message : String)
+    fun showMessage(message: String)
 }

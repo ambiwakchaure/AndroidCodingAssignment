@@ -16,22 +16,22 @@ import androidx.room.RoomDatabase
     version = 1,
     exportSchema = false
 )
-abstract class CityInfoDb : RoomDatabase()
-{
+abstract class CityInfoDb : RoomDatabase() {
     //get dao here
-    abstract fun getCityInfoProviderDao() : CityInfoProviderDao
+    abstract fun getCityInfoProviderDao(): CityInfoProviderDao
 
     //build the room database
-    companion object
-    {
-        @Volatile private var instance :CityInfoDb? = null
+    companion object {
+        @Volatile
+        private var instance: CityInfoDb? = null
         private val LOCK = Any()
 
-        operator fun invoke(context: Context) = instance ?: synchronized(LOCK){
-            instance ?: buildDatabase(context).also{
+        operator fun invoke(context: Context) = instance ?: synchronized(LOCK) {
+            instance ?: buildDatabase(context).also {
                 instance = it
             }
         }
+
         private fun buildDatabase(context: Context) = Room.databaseBuilder(
             context.applicationContext,
             CityInfoDb::class.java,

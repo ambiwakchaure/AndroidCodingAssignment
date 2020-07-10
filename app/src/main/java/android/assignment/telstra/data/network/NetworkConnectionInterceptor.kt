@@ -16,9 +16,10 @@ class NetworkConnectionInterceptor : Interceptor {
             throw NoInternetException(Constants.CONNECTION)
         return chain.proceed(chain.request())
     }
-
+    //check internet connectivity
     private fun isInternetAvailable(): Boolean {
-        val connectivityManager = MyApplication.context.getSystemService(Context.CONNECTIVITY_SERVICE)
+        val connectivityManager =
+            MyApplication.context.getSystemService(Context.CONNECTIVITY_SERVICE)
         return if (connectivityManager is ConnectivityManager) {
             val networkInfo: NetworkInfo? = connectivityManager.activeNetworkInfo
             networkInfo?.isConnected ?: false
