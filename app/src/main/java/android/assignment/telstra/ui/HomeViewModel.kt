@@ -21,7 +21,7 @@ class HomeViewModel(private val repository: CityInfoProviderRepository) : ViewMo
     var iHomeCallbacks: IHomeCallbacks? = null
     var isLoading: Boolean = false
 
-    init {
+    init {//asdasdas
         if (T.isNetworkAvailable()) {
             //load data from local db
             getCityTitle()
@@ -43,7 +43,7 @@ class HomeViewModel(private val repository: CityInfoProviderRepository) : ViewMo
     //get all city info details from api
     fun getCityInfoDetailsFromApi() {
         viewModelScope.launch {
-            var response = repository.getCityInfoProviderDetails()
+            val response = repository.getCityInfoProviderDetails()
             response.title?.let {
                 //store title into shredpref
                 city_info_title.value = response.title
