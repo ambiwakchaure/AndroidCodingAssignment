@@ -4,6 +4,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import java.io.Serializable
 
+//city info table
 @Entity
 class CityInfoProvider(
     val title: String? = null,

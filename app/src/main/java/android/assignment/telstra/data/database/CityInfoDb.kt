@@ -20,7 +20,7 @@ abstract class CityInfoDb : RoomDatabase() {
     //get dao here
     abstract fun getCityInfoProviderDao(): CityInfoProviderDao
 
-    //build the room database
+    //build the room  database
     companion object {
         @Volatile
         private var instance: CityInfoDb? = null
