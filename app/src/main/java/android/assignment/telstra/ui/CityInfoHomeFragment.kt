@@ -13,7 +13,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.ViewHolder
@@ -34,7 +34,7 @@ class CityInfoHomeFragment : Fragment(), KodeinAware, IHomeCallbacks {
         savedInstanceState: Bundle?
     ): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.home_fragment, container, false)
-        viewModel = ViewModelProviders.of(this, factory).get(HomeViewModel::class.java)
+        viewModel = ViewModelProvider(this, factory).get(HomeViewModel::class.java)
         binding.homeViewModel = viewModel
         viewModel.iHomeCallbacks = this
         return binding.root
@@ -61,7 +61,7 @@ class CityInfoHomeFragment : Fragment(), KodeinAware, IHomeCallbacks {
                 viewModel.isLoading = false
                 binding.homeViewModel = viewModel
                 //finally bind the data
-                initCityInfoProviderRecyclerview(it!!.toCityInfoProviderItem())
+                initCityInfoProviderRecyclerview(it.toCityInfoProviderItem())
             }
         })
     }
