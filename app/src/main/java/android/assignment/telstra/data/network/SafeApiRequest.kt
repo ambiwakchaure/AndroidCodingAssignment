@@ -4,7 +4,7 @@ import com.example.kubaattendance.util.ApiException
 import org.json.JSONException
 import org.json.JSONObject
 import retrofit2.Response
-
+//
 abstract class SafeApiRequest {
     suspend fun <T : Any> apiRequest(call: suspend () -> Response<T>): T {
         val response = call.invoke()

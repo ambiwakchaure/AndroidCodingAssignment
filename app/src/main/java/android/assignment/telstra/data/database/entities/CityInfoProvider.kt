@@ -6,10 +6,10 @@ import java.io.Serializable
 
 //city info table
 @Entity
-class CityInfoProvider(
-    val title: String? = null,
-    val description: String? = null,
-    val imageHref: String? = null
+data class CityInfoProvider(
+    var title: String? = null,
+    var description: String? = null,
+    var imageHref: String? = null
 ) : Serializable {
     @PrimaryKey(autoGenerate = true)
     var id: Int = 0

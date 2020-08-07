@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit
 
 interface MyApi {
 
-    //api for load data fromserver
+    //api for load  data fromserver
     @POST("facts.json")
     suspend fun getCityInfoProviderDetails(): Response<CityInfoResponse>
 

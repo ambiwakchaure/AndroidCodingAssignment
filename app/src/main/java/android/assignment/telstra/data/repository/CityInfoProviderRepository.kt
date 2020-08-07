@@ -8,7 +8,7 @@ import kuba.systems.emplo.data.network.MyApi
 
 class CityInfoProviderRepository(private val api: MyApi, private val db: CityInfoDb) :
     SafeApiRequest() {
-    //all room database call goes from here
+    //all room database  call goes from here
     //get all city info
     suspend fun getAllCityInfo(): List<CityInfoProvider> =
         db.getCityInfoProviderDao().getAllCityInfo()
