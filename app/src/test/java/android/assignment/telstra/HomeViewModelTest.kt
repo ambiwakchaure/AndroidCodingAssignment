@@ -163,8 +163,9 @@ class HomeViewModelTest
             verify(cityInfoProviderDao).getAllCityInfo()
             verify(cityInfoProviderObserver).onChanged(emptyList())
             homeViewModel.getAllCityInfo().removeObserver(cityInfoProviderObserver)
-            println("givenRoomResponseSuccess_whenFetch_AllCityInfoSuccessfully")
+
         }
+        println("givenRoomResponseSuccess_whenFetch_AllCityInfoSuccessfully")
 
     }
     @Test
@@ -179,8 +180,9 @@ class HomeViewModelTest
             verify(cityInfoProviderDao).getAllCityInfo()
             verify(cityInfoProviderObserver).onChanged(emptyList())
             homeViewModel.getAllCityInfo().removeObserver(cityInfoProviderObserver)
-            println("givenRoomResponseError_whenFetch_AllCityInfoSuccessfully")
+
         }
+        println("givenRoomResponseError_whenFetch_AllCityInfoSuccessfully")
 
     }
     @Test
@@ -188,11 +190,12 @@ class HomeViewModelTest
     {
         Coroutines.io {
             doReturn("City information refreshed")
-                .`when`(cityInfoProviderRepository)
+                .`when`(myApi)
                 .getCityInfoProviderDetails()
              verify(homeViewModel.getCityInfoDetailsFromApi())
-            println("givenServerResponseSuccess_whenGetCityInfoDetailsFromApi")
+
         }
+        println("givenServerResponseSuccess_whenGetCityInfoDetailsFromApi")
 
     }
     @Test
@@ -201,11 +204,12 @@ class HomeViewModelTest
         Coroutines.io {
             var errorData = "Something went wrong with getCityInfoProviderDetails"
             doThrow(RuntimeException(errorData))
-                .`when`(cityInfoProviderRepository)
+                .`when`(myApi)
                 .getCityInfoProviderDetails()
             verify(homeViewModel.getCityInfoDetailsFromApi())
-            println("givenServerResponseError_whenGetCityInfoDetailsFromApi")
+
         }
+        println("givenServerResponseError_whenGetCityInfoDetailsFromApi")
 
     }
     @After
