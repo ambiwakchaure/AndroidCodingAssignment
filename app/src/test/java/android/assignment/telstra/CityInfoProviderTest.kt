@@ -23,8 +23,8 @@ class CityInfoProviderTest
         assertEquals("http://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/American_Beaver.jpg/220px-American_Beaver.jpg",testCityInfoProviderResult.component3())
 
 
-        println(testCityInfoProviderResult.toString())
-        println(testCityInfoProviderResult.hashCode())
+        println("Actual Values : "+testCityInfoProviderResult.toString())
+        println("Hash Code : "+testCityInfoProviderResult.hashCode())
 
         val testCityInfoProviderResult1 = CityInfoProvider(
             "Beavers",

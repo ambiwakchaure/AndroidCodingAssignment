@@ -13,4 +13,6 @@ class CityInfoProviderItem(private val cityInfoProvider: CityInfoProvider) :
     override fun bind(viewBinding: CityInfoProviderItemBinding, position: Int) {
         viewBinding.cityInfoProvider = cityInfoProvider
     }
+
+
 }

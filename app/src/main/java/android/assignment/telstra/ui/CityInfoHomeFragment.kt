@@ -37,6 +37,7 @@ class CityInfoHomeFragment : Fragment(), KodeinAware, IHomeCallbacks {
         viewModel = ViewModelProvider(this, factory).get(HomeViewModel::class.java)
         binding.homeViewModel = viewModel
         viewModel.iHomeCallbacks = this
+        viewModel.initData()
         return binding.root
     }
 
